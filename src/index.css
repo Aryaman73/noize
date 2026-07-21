@@ -4,23 +4,55 @@
   margin: 0;
 }
 
+:root {
+  --fontSize: calc(12px + 0.698vw); /* The character count on */
+  --lineHeight: calc(var(--fontSize) * 1.4);
+  --letterSpacing: calc(var(--fontSize) * 0.0015);
+  --fontWeight: 300;
+
+  /* Light theme (default). Dark overrides live below. */
+  --bg: #ffffff;
+  --text: #111111;
+  --link: #000000;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --shadow-strong: rgba(0, 0, 0, 0.2);
+  --toggle-hover: rgba(0, 0, 0, 0.06);
+}
+
+/* Dark values, kept in one place and applied by both selectors below. */
+:root[data-theme="dark"] {
+  --bg: #0f0f0f;
+  --text: #ededed;
+  --link: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --shadow-strong: rgba(0, 0, 0, 0.6);
+  --toggle-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* Fallback for when JS can't set data-theme: follow the device preference,
+   unless the user has explicitly picked light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f0f0f;
+    --text: #ededed;
+    --link: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-strong: rgba(0, 0, 0, 0.6);
+    --toggle-hover: rgba(255, 255, 255, 0.1);
+  }
+}
+
 html {
   font-family: "Inter", sans-serif;
-  background: #ffffff;
-  color: #111111;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 @supports (font-variation-settings: normal) {
   html {
     font-family: "Inter var", sans-serif;
   }
-}
-
-:root {
-  --fontSize: calc(12px + 0.698vw); /* The character count on */
-  --lineHeight: calc(var(--fontSize) * 1.4);
-  --letterSpacing: calc(var(--fontSize) * 0.0015);
-  --fontWeight: 300;
 }
 
 img {

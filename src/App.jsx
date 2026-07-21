@@ -3,6 +3,7 @@ import "./App.css";
 import Library from "./Library";
 import SongPage from "./SongPage";
 import About from "./About";
+import ThemeToggle from "./ThemeToggle";
 
 class App extends Component {
   constructor() {
@@ -45,34 +46,36 @@ class App extends Component {
   }
 
   render() {
+    let content;
     if (this.state.song) {
-      return (
-        <div className="app">
-          <SongPage
-            isrc={this.state.isrc}
-            asrc={this.state.asrc}
-            title={this.state.title}
-            backClicked={this.backClicked}
-            error={this.state.error}
-          />
-        </div>
+      content = (
+        <SongPage
+          isrc={this.state.isrc}
+          asrc={this.state.asrc}
+          title={this.state.title}
+          backClicked={this.backClicked}
+          error={this.state.error}
+        />
       );
     } else if (this.state.about) {
-      return (
-        <div className="app">
-          <About backClicked={this.backClicked} />
-        </div>
-      );
+      content = <About backClicked={this.backClicked} />;
     } else {
-      return (
-        <div className="app">
-          <Library
-            songClicked={this.songClicked}
-            aboutClicked={this.aboutClicked}
-          />
-        </div>
+      content = (
+        <Library
+          songClicked={this.songClicked}
+          aboutClicked={this.aboutClicked}
+        />
       );
     }
+
+    // ThemeToggle lives outside the conditional so it's never unmounted and
+    // stays in the same spot across every view.
+    return (
+      <>
+        <ThemeToggle />
+        <div className="app">{content}</div>
+      </>
+    );
   }
 }
 
