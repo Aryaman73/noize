@@ -24,10 +24,13 @@ function About(props) {
       <div className="about-text">
         <h2>Simple background/white noise to relax or focus</h2>
         <p>
-          Hey there! This was a fun personal project that I built in React
-          (using create-react-app) to help people relax. Many people have worked
-          on the art and music on this website so please check the credits below
-          to go and support them and find similar work. Cheers!
+          Hey there! This is a recreation of a lovely little project originally
+          built by <a href="https://github.com/kartiknair">kartiknair</a> to
+          help people relax and focus with background noise. I rebuilt and
+          modernized it (now running on React and Vite) as a fun exercise,
+          keeping the original art and sounds intact. Many talented people made
+          the art and music you hear here, so please check the credits below to
+          support them and find similar work. Cheers!
         </p>
       </div>
 
@@ -38,7 +41,7 @@ function About(props) {
           <a href="https://1041uuu.tumblr.com/"> 1041uuu</a>
         </p>
         <p>
-          Waterfall in the forest by{" "}
+          Waterfall in a forest by{" "}
           <a href="https://www.youtube.com/watch?v=euEwKtP5CG4">
             The Guild of Ambience
           </a>
@@ -68,7 +71,7 @@ function About(props) {
           </a>
         </p>
         <p>
-          Medeival Town by{" "}
+          Medieval Town by{" "}
           <a href="https://www.youtube.com/watch?v=ugLwYV1GSvo">
             The Guild of Ambience
           </a>
