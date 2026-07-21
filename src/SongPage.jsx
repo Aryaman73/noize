@@ -1,5 +1,6 @@
 import React from "react";
 import "./SongPage.css";
+import { mediaUrl } from "./media";
 
 function SongPage(props) {
   return (
@@ -23,13 +24,13 @@ function SongPage(props) {
       <div className="song-page">
         {props.error ? (
           <img
-            src={require(`${props.isrc}.gif`)}
+            src={mediaUrl(props.isrc, "gif")}
             alt="Relaxing GIF"
             className="page-image"
           />
         ) : (
           <video className="page-image" autoPlay loop muted playsInline>
-            <source src={require(`${props.isrc}.mp4`)} type="video/mp4" />
+            <source src={mediaUrl(props.isrc, "mp4")} type="video/mp4" />
           </video>
         )}
 

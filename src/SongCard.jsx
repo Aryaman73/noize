@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { mediaUrl } from "./media";
 
 class SongCard extends Component {
   constructor(props) {
@@ -35,14 +36,14 @@ class SongCard extends Component {
         {this.state.err ? (
           <img
             className="image"
-            src={require(`${this.props.isrc}.gif`)}
+            src={mediaUrl(this.props.isrc, "gif")}
             alt="Relaxing GIF"
             title="Your browser does not support the <video> tag"
           />
         ) : (
           <video
             className="image"
-            src={require(`${this.props.isrc}.mp4`)}
+            src={mediaUrl(this.props.isrc, "mp4")}
             type="video/mp4"
             autoPlay
             loop

@@ -3,7 +3,6 @@ import "./App.css";
 import Library from "./Library";
 import SongPage from "./SongPage";
 import About from "./About";
-import ReactGA from "react-ga";
 
 class App extends Component {
   constructor() {
@@ -19,11 +18,6 @@ class App extends Component {
     this.songClicked = this.songClicked.bind(this);
     this.backClicked = this.backClicked.bind(this);
     this.aboutClicked = this.aboutClicked.bind(this);
-  }
-
-  componentDidMount() {
-    ReactGA.initialize("UA-156002988-1");
-    ReactGA.pageview(window.location.pathname);
   }
 
   songClicked(audio, image, name, err) {
