@@ -56,14 +56,13 @@ function Library(props) {
   return (
     <div className="library">
       <div className="header-text">
-        <h2>Simple background/white noise to relax or focus</h2>
+        <h2>Noize</h2>
         <p>
-          Find out more about this project in the{" "}
           <a href="About Page" onClick={e => props.aboutClicked(e)}>
-            About
+            about
           </a>{" "}
-          section and if you’re interested you can find the source code on{" "}
-          <a href="https://github.com/Aryaman73/noize">GitHub</a>
+          /{" "}
+          <a href="https://github.com/Aryaman73/noize">github</a>
         </p>
       </div>
       {finalSongs}
