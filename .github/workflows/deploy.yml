@@ -27,6 +27,18 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # Bundle the audio into the Pages artifact instead of hotlinking GitHub
+      # Releases. Pages serves .mp3 as audio/mpeg (inline) with range support,
+      # which iOS requires; Releases serve application/octet-stream (attachment),
+      # which iOS refuses to play. Files ride along in the deploy, never in git.
+      - name: Fetch audio assets into build
+        run: |
+          mkdir -p dist/audio
+          for i in $(seq 1 10); do
+            curl -sSfL \
+              "https://github.com/Aryaman73/noize/releases/download/audio-v1/a${i}.mp3" \
+              -o "dist/audio/a${i}.mp3"
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

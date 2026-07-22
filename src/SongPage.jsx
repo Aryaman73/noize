@@ -36,7 +36,9 @@ function SongPage(props) {
 
         <h3 className="song-title-page">{props.title}</h3>
         <div className="audio-player">
-          <audio src={props.asrc} controls type="audio/mpeg"></audio>
+          <audio controls>
+            <source src={props.asrc} type="audio/mpeg" />
+          </audio>
         </div>
       </div>
     </div>

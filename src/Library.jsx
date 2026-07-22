@@ -21,9 +21,10 @@ function Library(props) {
   ];
 
   for (let i = 1; i <= 10; i++) {
-    audios.push(
-      `https://github.com/Aryaman73/noize/releases/download/audio-v1/a${i}.mp3`
-    );
+    // Served from the Pages site itself (see deploy.yml), so the browser gets
+    // Content-Type: audio/mpeg + inline disposition — required for iOS playback.
+    // GitHub Releases serve application/octet-stream + attachment, which iOS rejects.
+    audios.push(`${import.meta.env.BASE_URL}audio/a${i}.mp3`);
     images.push(`./images/i${i}`);
     list.push([audios[i - 1], images[i - 1], titles[i - 1]]);
   }
