@@ -48,6 +48,7 @@ class SongCard extends Component {
             autoPlay
             loop
             muted
+            playsInline
           ></video>
         )}
 
