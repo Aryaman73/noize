@@ -24,8 +24,10 @@
   --bg: #0f0f0f;
   --text: #ededed;
   --link: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.4);
-  --shadow-strong: rgba(0, 0, 0, 0.6);
+  /* No drop shadow in dark mode: a black shadow over a near-black background
+     reads as a dark rectangular halo around the artwork, not as depth. */
+  --shadow: transparent;
+  --shadow-strong: transparent;
   --toggle-hover: rgba(255, 255, 255, 0.1);
 }
 
@@ -36,8 +38,8 @@
     --bg: #0f0f0f;
     --text: #ededed;
     --link: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.4);
-    --shadow-strong: rgba(0, 0, 0, 0.6);
+    --shadow: transparent;
+    --shadow-strong: transparent;
     --toggle-hover: rgba(255, 255, 255, 0.1);
   }
 }
